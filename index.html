@@ -48,7 +48,7 @@
             margin: 0 auto;
         }
 
-        /* Cabeçalho com logo */
+        /* Cabeçalho com logo - SIMÉTRICO */
         .header {
             display: flex;
             justify-content: space-between;
@@ -62,12 +62,15 @@
             height: 120px;
             width: 180px;
             display: flex;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
         }
 
         .logo {
-            height: 100%;
-            width: 100%;
+            height: 90px;
+            width: auto;
+            max-width: 180px;
             object-fit: contain;
             border: 3px solid #D2B48C;
             border-radius: 8px;
@@ -76,21 +79,22 @@
         }
 
         .logo-text {
-            font-size: 1.4em;
+            font-size: 1.2em;
             color: #D4C1EC;
             text-align: center;
-            margin-top: 5px;
+            margin-top: 8px;
             text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            font-weight: 600;
         }
 
         .header-content {
             text-align: center;
             flex: 1;
-            margin: 0 30px;
+            margin: 0 40px;
         }
 
         .header h1 {
-            font-size: 5.2em;
+            font-size: 4.8em;
             font-weight: 900;
             letter-spacing: 2px;
             text-shadow: 
@@ -103,68 +107,72 @@
         }
 
         .header .subtitle {
-            font-size: 1.6em;
+            font-size: 1.5em;
             color: #D4C1EC;
             letter-spacing: 1px;
             text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            margin-top: 8px;
         }
 
-        /* Grid de produtos com alta legibilidade */
+        /* Grid de produtos com alta legibilidade - SIMÉTRICO */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
             flex: 1;
-            padding: 15px 0;
+            padding: 20px 0;
+            justify-items: center;
         }
 
         .product-card {
-            background: rgba(30, 15, 5, 0.85);
+            background: rgba(30, 15, 5, 0.88);
             border-radius: 18px;
-            padding: 25px;
+            padding: 28px 20px;
             text-align: center;
             border: 2px solid #8B4513;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+            width: 100%;
+            max-width: 420px;
         }
 
         .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55);
             border-color: #D2B48C;
         }
 
         .product-image {
-            width: 200px;
-            height: 150px;
+            width: 190px;
+            height: 140px;
             object-fit: cover;
             border-radius: 12px;
-            margin: 0 auto 20px;
+            margin: 0 auto 22px;
             border: 3px solid #A0522D;
             background: #2C1A0C;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.45);
             position: relative;
         }
 
         .product-name {
-            font-size: 2.1em;
+            font-size: 1.9em;
             font-weight: 800;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             color: #FFD700;
             text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
             letter-spacing: 1px;
             line-height: 1.2;
-            min-height: 2.2em;
+            min-height: 2.3em;
         }
 
         .product-description {
-            font-size: 1.15em;
+            font-size: 1.12em;
             color: #D4C1EC;
-            margin-bottom: 20px;
-            min-height: 45px;
-            line-height: 1.4;
+            margin-bottom: 22px;
+            min-height: 50px;
+            line-height: 1.5;
             text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
         }
 
@@ -172,12 +180,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 18px;
+            margin-top: 16px;
         }
 
         .old-price {
-            font-size: 1.3em;
+            font-size: 1.35em;
             color: #A9A9A9;
             text-decoration: line-through;
             font-weight: 400;
@@ -185,7 +193,7 @@
         }
 
         .current-price {
-            font-size: 2.8em;
+            font-size: 2.6em;
             font-weight: 900;
             color: #FFD700;
             text-shadow: 0 0 12px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.6);
@@ -198,11 +206,11 @@
             right: 15px;
             background: linear-gradient(135deg, #D32F2F, #B71C1C);
             color: white;
-            padding: 8px 18px;
+            padding: 9px 20px;
             border-radius: 40px;
             font-weight: 900;
-            font-size: 1.1em;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            font-size: 1.15em;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
             border: 2px solid #FF9800;
             z-index: 2;
             text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
@@ -210,12 +218,12 @@
 
         .footer {
             text-align: center;
-            padding: 20px;
+            padding: 22px;
             font-size: 1.2em;
             color: #D4C1EC;
             border-top: 2px solid #8B4513;
-            margin-top: 15px;
-            background: rgba(20, 10, 5, 0.7);
+            margin-top: 18px;
+            background: rgba(20, 10, 5, 0.75);
             border-radius: 12px;
             box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
         }
@@ -228,7 +236,7 @@
         .update-info {
             font-size: 1.1em;
             color: #FFD700;
-            margin-top: 8px;
+            margin-top: 10px;
             font-weight: 600;
             text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
         }
@@ -345,74 +353,72 @@
         .product-card:nth-child(4) { animation-delay: 0.4s; }
         .product-card:nth-child(5) { animation-delay: 0.5s; }
         .product-card:nth-child(6) { animation-delay: 0.6s; }
-        .product-card:nth-child(7) { animation-delay: 0.7s; }
-        .product-card:nth-child(8) { animation-delay: 0.8s; }
 
         /* Responsividade para diferentes telas */
         @media (max-width: 1920px) {
             .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                grid-template-columns: repeat(3, 1fr);
             }
             .header h1 {
-                font-size: 4.8em;
+                font-size: 4.5em;
             }
         }
 
         @media (max-width: 1600px) {
             .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
             }
             .header h1 {
-                font-size: 4.2em;
+                font-size: 4.0em;
             }
         }
 
         @media (max-width: 1280px) {
             .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
             }
             .header h1 {
-                font-size: 3.8em;
-            }
-            .product-name {
-                font-size: 1.9em;
-            }
-            .current-price {
-                font-size: 2.4em;
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            .header h1 {
-                font-size: 3.2em;
+                font-size: 3.6em;
             }
             .product-name {
                 font-size: 1.7em;
             }
             .current-price {
-                font-size: 2.1em;
+                font-size: 2.3em;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .header h1 {
+                font-size: 3.0em;
+            }
+            .product-name {
+                font-size: 1.6em;
+            }
+            .current-price {
+                font-size: 2.0em;
             }
         }
 
         @media (max-width: 800px) {
             .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                grid-template-columns: 1fr;
             }
             .header h1 {
-                font-size: 2.8em;
+                font-size: 2.6em;
             }
             .product-name {
                 font-size: 1.5em;
             }
             .current-price {
-                font-size: 1.9em;
+                font-size: 1.8em;
             }
             .product-image {
-                width: 180px;
-                height: 130px;
+                width: 170px;
+                height: 120px;
             }
         }
     </style>
@@ -421,9 +427,8 @@
     <div class="container">
         <div class="header">
             <div class="logo-container">
-                <!-- O logo será carregado dinamicamente -->
-                <img src="logo.png" alt="Logo do Supermercado" class="logo">
-                <div class="logo-text">Supermercado</div>
+                <img src="logo.jpg" alt="Logo do Supermercado" class="logo">
+                <div class="logo-text">SUPERMERCADO</div>
             </div>
             
             <div class="header-content">
@@ -431,7 +436,10 @@
                 <div class="subtitle">CARNES FRESCAS • QUALIDADE PREMIUM • MELHORES PREÇOS</div>
             </div>
             
-            <div class="header-empty"></div>
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Logo do Supermercado" class="logo">
+                <div class="logo-text">SUPERMERCADO</div>
+            </div>
         </div>
 
         <div class="products-grid" id="productsGrid">
@@ -462,7 +470,7 @@
 
         <div class="config-group">
             <label for="cols">Número de Colunas (2-4):</label>
-            <input type="number" id="cols" min="2" max="4" value="4">
+            <input type="number" id="cols" min="2" max="4" value="3">
         </div>
 
         <div class="config-group">
@@ -472,7 +480,7 @@
 
         <div class="config-group">
             <label for="logoUrl">Caminho do Logo:</label>
-            <input type="text" id="logoUrl" value="logo.png">
+            <input type="text" id="logoUrl" value="logo.jpg">
         </div>
 
         <div class="config-buttons">
@@ -485,79 +493,61 @@
     <div class="info-bar" id="infoBar"></div>
 
     <script>
-        // Dados dos produtos (atualize conforme necessário)
+        // Dados dos produtos - CORRIGIDOS
         const produtos = [
             {
                 id: 1,
-                nome: "Lombo Suíno",
-                descricao: "Corte nobre, macio e versátil para diversas receitas",
-                precoAntigo: 32.90,
-                precoAtual: 26.32,
+                nome: "Salsichão Suíno",
+                descricao: "Linguiça grossa, ideal para churrasco e assados",
+                precoAntigo: 9.99,
+                precoAtual: 7.99,
                 desconto: 20,
-                imagem: "images/lombo.jpg"
+                imagem: "images/salsichao.jpg"
             },
             {
                 id: 2,
-                nome: "Peito de Porco",
-                descricao: "Ideal para assados e recheios, muito saboroso",
-                precoAntigo: 28.50,
-                precoAtual: 24.23,
+                nome: "Toucinho",
+                descricao: "Bacon em bloco, perfeito para preparações diversas",
+                precoAntigo: 11.99,
+                precoAtual: 10.19,
                 desconto: 15,
-                imagem: "images/peito.jpg"
+                imagem: "images/toucinho.jpg"
             },
             {
                 id: 3,
-                nome: "Bisteca Suína",
-                descricao: "Perfeita para churrasco, grelhados e frituras",
-                precoAntigo: 24.90,
-                precoAtual: 18.68,
-                desconto: 25,
-                imagem: "images/bisteca.jpg"
+                nome: "Panceta",
+                descricao: "Corte gorduroso, excelente para temperos e assados",
+                precoAntigo: 12.99,
+                precoAtual: 8.96,
+                desconto: 31,
+                imagem: "images/panceta.jpg"
             },
             {
                 id: 4,
-                nome: "Costela Suína",
-                descricao: "Tradicional costela para churrasco e assados",
-                precoAntigo: 29.80,
-                precoAtual: 24.44,
-                desconto: 18,
-                imagem: "images/costela.jpg"
+                nome: "Bisteca Suína",
+                descricao: "Corte com osso, perfeito para churrasco e grelhados",
+                precoAntigo: 15.99,
+                precoAtual: 13.43,
+                desconto: 16,
+                imagem: "images/bisteca.jpg"
             },
             {
                 id: 5,
-                nome: "Picanha Suína",
-                descricao: "Corte premium para churrasco, muito macia",
-                precoAntigo: 38.50,
-                precoAtual: 30.03,
+                nome: "Lombo Suíno",
+                descricao: "Corte magro e macio, ideal para assados e rosbife",
+                precoAntigo: 18.99,
+                precoAtual: 14.81,
                 desconto: 22,
-                imagem: "images/picanha.jpg"
+                imagem: "images/lombo.jpg"
             },
             {
                 id: 6,
-                nome: "Linguiça Suína",
-                descricao: "Linguiça artesanal, perfeita para churrasco",
-                precoAntigo: 22.00,
-                precoAtual: 15.40,
-                desconto: 30,
-                imagem: "images/linguica.jpg"
-            },
-            {
-                id: 7,
-                nome: "Pernil Suíno",
-                descricao: "Excelente para assados e feijoada",
-                precoAntigo: 35.00,
-                precoAtual: 28.00,
-                desconto: 20,
-                imagem: "images/pernil.jpg"
-            },
-            {
-                id: 8,
-                nome: "Bacon Premium",
-                descricao: "Bacon fatiado premium, defumado",
-                precoAntigo: 18.90,
-                precoAtual: 15.12,
-                desconto: 20,
-                imagem: "images/bacon.jpg"
+                nome: "Costelinha Suína",
+                descricao: "Costela suína, tradicional para churrasco e assados",
+                precoAntigo: 19.99,
+                precoAtual: 16.79,
+                desconto: 16,
+                imagem: "images/costelinha.jpg"
             }
         ];
 
@@ -575,24 +565,24 @@
             const config = JSON.parse(localStorage.getItem('painelConfig')) || {
                 titulo: "PROMOÇÕES SUÍNOS",
                 subtitle: "CARNES FRESCAS • QUALIDADE PREMIUM • MELHORES PREÇOS",
-                cols: 4,
+                cols: 3,
                 fontSize: 16,
-                logoUrl: "logo.png"
+                logoUrl: "logo.jpg"
             };
             
             // Aplicar configurações
             document.querySelector('.header h1').textContent = config.titulo;
             document.querySelector('.subtitle').textContent = config.subtitle;
             document.getElementById('productsGrid').style.gridTemplateColumns = 
-                `repeat(auto-fill, minmax(${Math.max(220, 1000/config.cols)}px, 1fr))`;
+                `repeat(${config.cols}, 1fr)`;
             document.body.style.fontSize = `${config.fontSize}px`;
             
-            // Atualizar logo
-            const logo = document.querySelector('.logo');
-            if (logo) {
+            // Atualizar logos (ambos os lados)
+            const logos = document.querySelectorAll('.logo');
+            logos.forEach(logo => {
                 logo.src = config.logoUrl;
                 logo.alt = `Logo do ${config.titulo.split(' ')[0]}`;
-            }
+            });
             
             // Atualizar inputs do painel
             document.getElementById('titulo').value = config.titulo;
@@ -614,7 +604,7 @@
                     <div class="promo-badge">-${produto.desconto}%</div>
                     <img src="${produto.imagem}" alt="${produto.nome}" 
                          class="product-image"
-                         onerror="this.style.background='#2C1A0C'; this.style.width='200px'; this.style.height='150px'">
+                         onerror="this.style.background='#2C1A0C'; this.style.width='190px'; this.style.height='140px'">
                     <h2 class="product-name">${produto.nome}</h2>
                     <p class="product-description">${produto.descricao}</p>
                     <div class="price-container">
@@ -642,7 +632,7 @@
                 second: '2-digit'
             };
             const dateTimeString = now.toLocaleDateString('pt-BR', options);
-            document.getElementById('updateTime').textContent = 'Agora: ' + dateTimeString;
+            document.getElementById('updateTime').textContent = '🕗 AGORA: ' + dateTimeString;
         }
 
         function setupConfigPanel() {
@@ -676,15 +666,15 @@
             document.querySelector('.header h1').textContent = titulo;
             document.querySelector('.subtitle').textContent = subtitle;
             document.getElementById('productsGrid').style.gridTemplateColumns = 
-                `repeat(auto-fill, minmax(${Math.max(220, 1000/cols)}px, 1fr))`;
+                `repeat(${cols}, 1fr)`;
             document.body.style.fontSize = `${fontSize}px`;
             
-            // Atualizar logo
-            const logo = document.querySelector('.logo');
-            if (logo) {
+            // Atualizar logos (ambos os lados)
+            const logos = document.querySelectorAll('.logo');
+            logos.forEach(logo => {
                 logo.src = logoUrl;
                 logo.alt = `Logo do ${titulo.split(' ')[0]}`;
-            }
+            });
             
             // Salvar configurações
             localStorage.setItem('painelConfig', JSON.stringify({
