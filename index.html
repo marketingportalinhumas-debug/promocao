@@ -48,11 +48,45 @@
             margin: 0 auto;
         }
 
-        /* Cabeçalho simplificado e claro */
+        /* Cabeçalho com logo */
         .header {
-            text-align: center;
-            padding: 30px 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0 20px;
             margin-bottom: 20px;
+        }
+
+        .logo-container {
+            position: relative;
+            height: 120px;
+            width: 180px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            border: 3px solid #D2B48C;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .logo-text {
+            font-size: 1.4em;
+            color: #D4C1EC;
+            text-align: center;
+            margin-top: 5px;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-content {
+            text-align: center;
+            flex: 1;
+            margin: 0 30px;
         }
 
         .header h1 {
@@ -386,8 +420,18 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>PROMOÇÕES SUÍNOS</h1>
-            <div class="subtitle">CARNES FRESCAS • QUALIDADE PREMIUM • MELHORES PREÇOS</div>
+            <div class="logo-container">
+                <!-- O logo será carregado dinamicamente -->
+                <img src="logo.png" alt="Logo do Supermercado" class="logo">
+                <div class="logo-text">Supermercado</div>
+            </div>
+            
+            <div class="header-content">
+                <h1>PROMOÇÕES SUÍNOS</h1>
+                <div class="subtitle">CARNES FRESCAS • QUALIDADE PREMIUM • MELHORES PREÇOS</div>
+            </div>
+            
+            <div class="header-empty"></div>
         </div>
 
         <div class="products-grid" id="productsGrid">
@@ -424,6 +468,11 @@
         <div class="config-group">
             <label for="fontSize">Tamanho da Fonte (12-24):</label>
             <input type="number" id="fontSize" min="12" max="24" value="16">
+        </div>
+
+        <div class="config-group">
+            <label for="logoUrl">Caminho do Logo:</label>
+            <input type="text" id="logoUrl" value="logo.png">
         </div>
 
         <div class="config-buttons">
@@ -514,11 +563,44 @@
 
         // Funções de interação
         document.addEventListener('DOMContentLoaded', () => {
+            loadConfig();
             renderProducts();
             updateDateTime();
             setInterval(updateDateTime, 1000);
             setupConfigPanel();
         });
+
+        function loadConfig() {
+            // Carregar configurações do localStorage
+            const config = JSON.parse(localStorage.getItem('painelConfig')) || {
+                titulo: "PROMOÇÕES SUÍNOS",
+                subtitle: "CARNES FRESCAS • QUALIDADE PREMIUM • MELHORES PREÇOS",
+                cols: 4,
+                fontSize: 16,
+                logoUrl: "logo.png"
+            };
+            
+            // Aplicar configurações
+            document.querySelector('.header h1').textContent = config.titulo;
+            document.querySelector('.subtitle').textContent = config.subtitle;
+            document.getElementById('productsGrid').style.gridTemplateColumns = 
+                `repeat(auto-fill, minmax(${Math.max(220, 1000/config.cols)}px, 1fr))`;
+            document.body.style.fontSize = `${config.fontSize}px`;
+            
+            // Atualizar logo
+            const logo = document.querySelector('.logo');
+            if (logo) {
+                logo.src = config.logoUrl;
+                logo.alt = `Logo do ${config.titulo.split(' ')[0]}`;
+            }
+            
+            // Atualizar inputs do painel
+            document.getElementById('titulo').value = config.titulo;
+            document.getElementById('subtitle').value = config.subtitle;
+            document.getElementById('cols').value = config.cols;
+            document.getElementById('fontSize').value = config.fontSize;
+            document.getElementById('logoUrl').value = config.logoUrl;
+        }
 
         function renderProducts() {
             const grid = document.getElementById('productsGrid');
@@ -587,18 +669,30 @@
             const titulo = document.getElementById('titulo').value;
             const subtitle = document.getElementById('subtitle').value;
             const cols = parseInt(document.getElementById('cols').value);
+            const fontSize = parseInt(document.getElementById('fontSize').value);
+            const logoUrl = document.getElementById('logoUrl').value;
             
             // Aplicar configurações
             document.querySelector('.header h1').textContent = titulo;
             document.querySelector('.subtitle').textContent = subtitle;
             document.getElementById('productsGrid').style.gridTemplateColumns = 
                 `repeat(auto-fill, minmax(${Math.max(220, 1000/cols)}px, 1fr))`;
+            document.body.style.fontSize = `${fontSize}px`;
+            
+            // Atualizar logo
+            const logo = document.querySelector('.logo');
+            if (logo) {
+                logo.src = logoUrl;
+                logo.alt = `Logo do ${titulo.split(' ')[0]}`;
+            }
             
             // Salvar configurações
             localStorage.setItem('painelConfig', JSON.stringify({
                 titulo,
                 subtitle,
-                cols
+                cols,
+                fontSize,
+                logoUrl
             }));
             
             showInfo("Configurações salvas com sucesso!");
